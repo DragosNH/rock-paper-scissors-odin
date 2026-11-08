@@ -26,4 +26,4 @@ const getHumanChoice = () => {
     return humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 }
 
-console.log(getHumanChoice());
+console.log(`My choice: ${getHumanChoice()}`);
