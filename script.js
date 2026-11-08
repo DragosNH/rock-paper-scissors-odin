@@ -1,7 +1,9 @@
 // ------ Variables ------
 const choices = ["Rock", "Paper", "Scissors"];
+let humanChoice = prompt("What is your choice?")
 
-// ------ A function that returns computer's choices ------
+
+// ------ A function that returns computer's choices. ------
 const getComputerChoice = () => {
 
     let randomChoice = Math.floor(Math.random() * choices.length)
@@ -17,5 +19,11 @@ const getComputerChoice = () => {
     }
 }
 
-console.log(getComputerChoice());
+console.log(`The computer chosed: ${getComputerChoice()}`);
 
+// ------ A function that returns the playe's choice. ------
+const getHumanChoice = () => {
+    return humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+}
+
+console.log(getHumanChoice());
