@@ -1,6 +1,9 @@
 // ------ Variables ------
 const choices = ["Rock", "Paper", "Scissors"];
-let humanChoice = prompt("What is your choice?")
+
+let humanChoice = prompt("What is your choice?");
+let humanScore = 0;
+let computerScore = 0;
 
 
 // ------ A function that returns computer's choices. ------
