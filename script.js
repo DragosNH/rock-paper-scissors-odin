@@ -1,6 +1,7 @@
+// ------ Variables ------
 const choices = ["Rock", "Paper", "Scissors"];
 
-
+// ------ A function that returns computer's choices ------
 const getComputerChoice = () => {
 
     let randomChoice = Math.floor(Math.random() * choices.length)
