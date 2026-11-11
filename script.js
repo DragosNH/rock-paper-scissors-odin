@@ -33,50 +33,63 @@ const getHumanChoice = () => {
 console.log(`My choice: ${getHumanChoice()}`);
 
 
-const playRound = (humanChoice, computerChoice) => {
-    humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 
-    // Rock Conditions
-    if (humanChoice === "Rock" && computerChoice === "Rock") {
-        return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-    } else if (humanChoice === "Rock" && computerChoice === "Paper") {
-        computerScore++;
-        return `Paper beats rock, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-    } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-        humanScore++;
-        return `Rock beats Scissors, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-        // Paper conditions
-    } else if (humanChoice === "Paper" && computerChoice === "Paper") {
-        return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
+const playGame = () => {
+    const playRound = (humanChoice, computerChoice) => {
+        humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 
-    } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-        computerScore++;
-        return `Scissors beats Paper, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
+        // Rock Conditions
+        if (humanChoice === "Rock" && computerChoice === "Rock") {
+            return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-    } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-        humanScore++;
-        return `Paper beats Rock, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
+        } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+            computerScore++;
+            return `Paper beats rock, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-        // Scissors conditions
-    } else if (humanChoice === "Scissors" && computerChoice === "Scissors") {
-        return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
+        } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+            humanScore++;
+            return `Rock beats Scissors, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-    } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-        computerScore++;
-        return `Rock beats Scissors, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
+            // Paper conditions
+        } else if (humanChoice === "Paper" && computerChoice === "Paper") {
+            return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
 
-    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        humanScore++;
-        return `Scissors beats Paper, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
+        } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+            computerScore++;
+            return `Scissors beats Paper, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
+
+        } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+            humanScore++;
+            return `Paper beats Rock, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
+
+            // Scissors conditions
+        } else if (humanChoice === "Scissors" && computerChoice === "Scissors") {
+            return `It's a tie!\nYou: ${humanScore} Computer: ${computerScore}`;
+
+        } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+            computerScore++;
+            return `Rock beats Scissors, Computer wins!\nYou: ${humanScore} Computer: ${computerScore}`;
+
+        } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+            humanScore++;
+            return `Scissors beats Paper, You win!\nYou: ${humanScore} Computer: ${computerScore}`;
+        }
+
+
     }
 
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    let round = 0;
 
+    do{
+        round++
+        console.log(playRound(humanSelection, computerSelection));
+        humanChoice = prompt(`What is your choice?`);
+    } while (round < 5)
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(getHumanChoice(), getComputerChoice()));
+playGame()
