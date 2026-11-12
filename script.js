@@ -4,6 +4,8 @@ const choices = ["Rock", "Paper", "Scissors"];
 let humanChoice = prompt(`What is your choice?`);
 let humanScore = 0;
 let computerScore = 0;
+let round = 0;
+
 
 
 // ------ A function that returns computer's choices. ------
@@ -30,7 +32,6 @@ const getHumanChoice = () => {
     return humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 }
 
-console.log(`My choice: ${getHumanChoice()}`);
 
 
 
@@ -83,13 +84,24 @@ const playGame = () => {
 
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-    let round = 0;
 
-    do{
-        round++
-        console.log(playRound(humanSelection, computerSelection));
-        humanChoice = prompt(`What is your choice?`);
-    } while (round < 5)
+
+    console.log(playRound(humanSelection, computerSelection));
+
 }
 
-playGame()
+
+while (round < 5) {
+    humanChoice = prompt(`What is your choice?`);
+    round++;
+    console.log(`Round: ${round}`);
+    console.log(`My choice: ${getHumanChoice()}`);
+    playGame();
+    if (round > 4 && humanScore > computerScore){
+        console.log(`Congratulations! You won!`);
+    } else if (round > 4 && humanScore < computerScore){
+        console.log(`Computer won!`)
+    } else {
+        console.log("It's a tie!");
+    }
+}
